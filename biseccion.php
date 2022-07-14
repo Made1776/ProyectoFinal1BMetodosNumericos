@@ -1,4 +1,4 @@
-<?php include("head.php"); ?>
+
 
 
 
@@ -160,7 +160,8 @@
             try {
             //Recupear datos guardados en el localStorage
             const expression = window.localStorage.getItem('expression');
-            const expr = math.compile(expression)
+            //const expr = math.compile(expression)
+            const expr = math.compile("x^3+2*x^2+3*x+4")
 
             // evaluate the expression repeatedly for different values of x
             const xValues = math.range(-10, 10, 0.5).toArray()
@@ -198,6 +199,3 @@
     <br/>
   </body>
 </html>
-
-
-<?php include("footer.php"); ?>
