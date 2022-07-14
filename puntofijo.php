@@ -29,6 +29,7 @@
     }
 
     echo "La raíz aproximada es r = $x"."<br>";
+    echo "f($x) = ".f($x)."(Este valor es cercano a 0)"."<br>";
 
     ?>
 

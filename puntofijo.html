@@ -1,0 +1,62 @@
+<?php include("head.php"); ?>
+
+<html>
+    <head>
+        <title>Método de Punto Fijo</title></head>
+        <body style = "background-color:#6294f1;">
+            
+            <div style="background-color:rgb(5, 71, 94)">
+            <font color="White" face="Comic Sans MS,arial">
+            <h2 style="text-align:center;">
+                Programa para calcular las raices de una función por el método de Punto Fijo<br>
+            </h2>
+            <h3>Ingrese una funcion, use sintaxis PHP. (No abreviar multiplicaciones usar siempre *)<br>Los límites del intervalo de interés, 
+            el numero de subintervalos y una tolerancia.</h3>
+            </div>
+    
+             <form action="falsaposicion.php" method="post" >
+                <div><label>X:</label><br>			<input type="text" name="ecuacion" value="<?php if(isset($_POST['ecuacion'])){echo $_POST['ecuacion'];}?>"><br></div>
+                <div><label>a:</label><br>      	<input type="text" name="linf" value="<?php if(isset($_POST['linf'])){echo $_POST['linf'];}?>"><br></div>
+                <div><label>b:</label><br>   		<input type="text" name="lsup" value="<?php if(isset($_POST['lsup'])){echo $_POST['lsup'];}?>"><br></div>
+                <div><label>n:</label><br> 			<input type="text" name="inter" value="<?php if(isset($_POST['inter'])){echo $_POST['inter'];}?>"><br></div>
+                <div><label>Tolerancia:</label><br> <input type="text" name="toler" value="<?php if(isset($_POST['toler'])){echo $_POST['toler'];}?>"><br></div>
+                <div><label>Método: </label><br>	<select id = "metodo" name="metodo">
+                                                    <option value = "falsa">Punto Fijo</option>
+                                                    </div>	
+              <input type="submit" value="submit">
+            </font>
+            </form> 
+            
+            
+        </body>
+</head>
+<body>
+    <?php
+    
+/*1. Definimos una función de variable real */
+
+    function f($x){
+        return ($x*$x)-(2*$x)+1;
+    }
+
+/* 2. Definimos una función de iteración de punto fijo*/
+/* Nota: ($x*$x)-(2*$x)+1=0 ssi $x=1 + ($x*$x)/2*/
+
+    function g($x){
+        return (1 + ($x*$x))/2;
+    }
+
+/** 3. Probamos que todo lo cresdo funcione como debe de ser */
+
+    $x=0;
+    while(f($x)>1e-5){
+        $x = g($x);
+    }
+
+    echo "La raíz aproximada es r = $x"."<br>";
+    echo "f($x) = ".f($x)."(Este valor es cercano a 0)"."<br>";
+
+    ?>
+
+</body>
+</html>
