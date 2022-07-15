@@ -149,7 +149,7 @@
 					<br/>
 					<div class="card"  style="height: 38.59rem;">
 						<div class="card-header">
-							<b>Encontrar Raiz por Bisección</b>
+							<b>Encontrar Raiz por Punto Fijo</b>
 						</div>
 						<div class="card-body">
 							<form action="biseccion.php" method="post" id="form">
